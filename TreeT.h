@@ -25,7 +25,14 @@ public:
     void Remove(T value);    // Remove value from the tree
     bool Contains(T value);  // Determines if value is in the tree
 
+    voidAddR(T value);
+    bool ContainsR(T value);
+
+
+
+    bool IsEmpty();
     int Size();     // Number of value in the tree
+
 
     // These are used by the iterator
     void ResetIterator(Order traverseOrder);    // Initializes the Iterator
@@ -50,6 +57,8 @@ private:
     void GetPredecessor(Node* curr, T& value);
 
     void CopyHelper(Node*& thisTree, Node* otherTree);
+
+    bool ContainsHelper(Node* subroot, T value);
 
     // Used for iterator
     queue<T> iterArr;     // queue used for the iterator

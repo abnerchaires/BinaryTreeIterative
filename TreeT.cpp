@@ -1,4 +1,6 @@
 
+#include "TreeT.h"
+
 template<class T>
 TreeT<T>::TreeT() {
     root = nullptr;
@@ -41,7 +43,7 @@ void TreeT<T>::Add(T value) {
     Node* newNode = new Node;
     newNode->value = value;
 
-    if (parent == nullptr) {
+    if (IsEmpty()) {
         root = newNode;
     }
 
@@ -86,9 +88,36 @@ bool TreeT<T>::Contains(T value) {
 }
 
 template<class T>
+bool TreeT<T>::ContainsR(T value) {
+    return ContainsHelper(root, value);
+}
+
+template<class T>
+bool TreeT<T>::ContainsHelper(TreeT::Node *subroot, T value) {
+
+    if (subroot == nullptr) {
+        return false; // Could not find the value.
+    }
+
+    if (subroot->value == value){
+        return true; // the value was found!
+    }
+
+    if (value < subroot->value) {
+        return ContainsHelper(subroot->left, value); // Does the value exist in the left subtree?
+    }
+
+    if (value > subroot->value) {
+        return ContainsHelper(subroot->right, value); // Does the value exist in the right subtree?
+    }
+
+    return false;
+}
+
+template<class T>
 int TreeT<T>::Size() {
 
-    return 0;
+    return numNodes;
 
 }
 
@@ -144,3 +173,12 @@ template<class T>
 void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
 
 }
+
+template<class T>
+bool TreeT<T>::IsEmpty() {
+    return numNodes == 0;
+}
+
+
+
+
