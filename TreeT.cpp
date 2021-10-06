@@ -207,7 +207,7 @@ bool TreeT<T>::IsEmpty() {
     return numNodes == 0;
 }
 
-template<class T>
+<T>
 void TreeT<T>::AddR(T value) {
 
 
