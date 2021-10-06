@@ -54,7 +54,7 @@ private:
     // Used for Node removal
     void RemoveHelper(Node*& subtree, T value);
     void DeleteNode(Node*& subtree);
-    void GetPredecessor(Node* curr, T& value);
+    void GetPredecessor(Node* curr, T& value); // Sets data to the info member of the right-most node in the tree.
 
     void CopyHelper(Node*& thisTree, Node* otherTree);
 

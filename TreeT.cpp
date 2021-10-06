@@ -147,7 +147,7 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
 template<class T>
 void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
 
-     TreeT data;
+     T data;
      Node* tempPtr;
 
      tempPtr = subtree;
@@ -172,13 +172,14 @@ void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
          Delete(subtree->left, data);
          // Delete predecessor node.
      }
-
-
 }
 
 template<class T>
 void TreeT<T>::GetPredecessor(TreeT::Node *curr, T &value) {
 
+    while (curr->right != NULL)
+        curr = curr->right;
+    value = curr->info;
 }
 
 template<class T>
