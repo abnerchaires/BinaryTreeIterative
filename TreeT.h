@@ -19,6 +19,7 @@ public:
     TreeT();
     ~TreeT();
 
+
     TreeT& operator=(const TreeT& otherTree);
 
     void Add(T value);       // Add value to the tree
@@ -56,6 +57,8 @@ private:
     void DeleteNode(Node*& subtree);
     void GetPredecessor(Node* curr, T& value); // Sets data to the info member of the right-most node in the tree.
 
+    // Used for copy constructor
+    void copyOther(TreeT& otherTree);
     void CopyHelper(Node*& thisTree, Node* otherTree);
 
     bool ContainsHelper(Node* subroot, T value);
