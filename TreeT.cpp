@@ -147,6 +147,33 @@ void TreeT<T>::RemoveHelper(TreeT::Node *&subtree, T value) {
 template<class T>
 void TreeT<T>::DeleteNode(TreeT::Node *&subtree) {
 
+     TreeT data;
+     Node* tempPtr;
+
+     tempPtr = subtree;
+     if (subtree->left == NULL && subtree->right == NULL)
+     {
+         delete subtree;
+     }
+     else if (subtree->left == NULL)
+     {
+         subtree = subtree->right;
+         delete tempPtr;
+     }
+     else if (subtree->right == NULL)
+     {
+         subtree = subtree->left;
+         delete tempPtr;
+     }
+     else
+     {
+         GetPredecessor(subtree->left, data);
+         subtree->info = data;
+         Delete(subtree->left, data);
+         // Delete predecessor node.
+     }
+
+
 }
 
 template<class T>
@@ -177,6 +204,13 @@ void TreeT<T>::PlaceInOrder(TreeT::Node *node) {
 template<class T>
 bool TreeT<T>::IsEmpty() {
     return numNodes == 0;
+}
+
+template<class T>
+void TreeT<T>::AddR(T value) {
+
+
+
 }
 
 

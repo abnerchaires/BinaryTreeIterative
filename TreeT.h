@@ -25,8 +25,8 @@ public:
     void Remove(T value);    // Remove value from the tree
     bool Contains(T value);  // Determines if value is in the tree
 
-    voidAddR(T value);
-    bool ContainsR(T value);
+    void AddR(T value);       // Recursive Add
+    bool ContainsR(T value); // Recursive Contains
 
 
 
